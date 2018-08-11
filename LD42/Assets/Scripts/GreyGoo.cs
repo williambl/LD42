@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GreyGoo : MonoBehaviour {
 
-    public float secondsUntilSplit = 1;
-    public float timesToSplit = 1;
+    public float secondsUntilSplit = 5;
+    public float timesToSplit = 2;
 
     // Use this for initialization
     void Start () {
@@ -20,7 +20,8 @@ public class GreyGoo : MonoBehaviour {
     IEnumerator Duplicate () {
         for (int i = 0; i < timesToSplit; i++) {
             yield return new WaitForSeconds(secondsUntilSplit);
-            GreyGooPoolManager.InstantiateFromQueue(transform.position, transform.rotation);
+            GameObject duplicate = GreyGooPoolManager.InstantiateFromQueue(transform.position, transform.rotation);
         }
+        Destroy(GetComponent<Rigidbody>());    
     }
 }
