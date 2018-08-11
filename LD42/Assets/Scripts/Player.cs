@@ -9,18 +9,24 @@ public class Player : MonoBehaviour {
 
     [SerializeField]
     private GameObject loseCanvas;
+    [SerializeField]
+    private GameObject winCanvas;
+    [SerializeField]
+    private UnityEngine.UI.Button winButton;
 
     private bool lost;
+    private bool won;
     private CharacterController controller;
 
     // Use this for initialization
     void Start () {
         controller = GetComponent<CharacterController>();
+        winButton.onClick.AddListener(Win);
     }
 
     // Update is called once per frame
     void FixedUpdate () {
-        if (lost)
+        if (lost || won)
             return;
         Vector3 rotation = new Vector3(0, Input.GetAxis("Horizontal")*rotateSpeed, 0);
         Vector3 translation = Input.GetAxis("Vertical")*moveSpeed*transform.forward;
@@ -32,5 +38,10 @@ public class Player : MonoBehaviour {
     public void Lose () {
         loseCanvas.SetActive(true);
         lost = true;
+    }
+
+    public void Win () {
+        winCanvas.SetActive(true);
+        won = true;
     }
 }
