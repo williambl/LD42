@@ -13,8 +13,9 @@ public class Player : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate () {
-        float movementX = Input.GetAxis("Horizontal");
-        float movementZ = Input.GetAxis("Vertical");
-        controller.Move(new Vector3(movementX, 0, movementZ));
+        float rotation = Input.GetAxis("Horizontal");
+        float translation = Input.GetAxis("Vertical");
+        transform.Rotate(new Vector3(0, rotation, 0));
+        controller.Move(new Vector3(0, 0, translation));
     }
 }

@@ -272,6 +272,7 @@ GameObject:
   - component: {fileID: 667148320}
   - component: {fileID: 667148322}
   - component: {fileID: 667148321}
+  - component: {fileID: 667148323}
   m_Layer: 0
   m_Name: Maze
   m_TagString: Untagged
@@ -336,6 +337,20 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 667148319}
+  m_Mesh: {fileID: 4300002, guid: c1967f0b861af4929bb254ce8a4dff58, type: 3}
+--- !u!64 &667148323
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 667148319}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: c1967f0b861af4929bb254ce8a4dff58, type: 3}
 --- !u!1 &1028417093
 GameObject:
