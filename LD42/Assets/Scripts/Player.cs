@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    CharacterController controller;
+    public float rotateSpeed = 20;
+    public float moveSpeed = 5;
+
+    private CharacterController controller;
 
     // Use this for initialization
     void Start () {
@@ -13,9 +16,10 @@ public class Player : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate () {
-        float rotation = Input.GetAxis("Horizontal");
-        float translation = Input.GetAxis("Vertical");
-        transform.Rotate(new Vector3(0, rotation, 0));
-        controller.Move(new Vector3(0, 0, translation));
+        Vector3 rotation = new Vector3(0, Input.GetAxis("Horizontal")*rotateSpeed, 0);
+        Vector3 translation = Input.GetAxis("Vertical")*moveSpeed*transform.forward;
+
+        transform.Rotate(rotation);
+        controller.SimpleMove(translation);
     }
 }
