@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secondsUntilSplit: 1
-  prefab: {fileID: 1466870522942512}
+  timesToSplit: 1
 --- !u!136 &136917076471922456
 CapsuleCollider:
   m_ObjectHideFlags: 1
