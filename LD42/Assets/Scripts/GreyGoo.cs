@@ -4,24 +4,20 @@ using UnityEngine;
 
 public class GreyGoo : MonoBehaviour {
 
-    public float secondsUntilSplit = 5;
-    public float timesToSplit = 2;
+    public float secondsUntilDoubled = 5;
+
+    private float lastDoubleTime = 0;
 
     // Use this for initialization
     void Start () {
-        StartCoroutine(Duplicate());
     }
 
     // Update is called once per frame
     void Update () {
-
-    }
-
-    IEnumerator Duplicate () {
-        for (int i = 0; i < timesToSplit; i++) {
-            yield return new WaitForSeconds(secondsUntilSplit);
-            GameObject duplicate = GreyGooPoolManager.InstantiateFromQueue(transform.position, transform.rotation);
+        if (Time.time > lastDoubleTime + secondsUntilDoubled) {
+            transform.localScale *= 2;
+            lastDoubleTime = Time.time;
         }
-        Destroy(GetComponent<Rigidbody>());    
     }
+
 }
