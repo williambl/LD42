@@ -8,10 +8,12 @@ public class GreyGoo : MonoBehaviour {
 
     private float lastDoubleTime = 0;
     private ParticleSystem particleSystem;
+    private AudioSource audioSource;
 
     // Use this for initialization
     void Start () {
         particleSystem = GetComponent<ParticleSystem>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -21,6 +23,8 @@ public class GreyGoo : MonoBehaviour {
             var main = particleSystem.main;
             emission.rateOverTime = emission.rateOverTime.constant * 6/(transform.localScale.x/2);
             main.startSize = main.startSize.constant * 2;
+
+            audioSource.volume *= 2;
 
             transform.localScale *= 2;
 
