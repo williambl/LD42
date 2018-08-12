@@ -6,21 +6,33 @@ ModelImporter:
     100000: Maze
     100002: //RootNode
     100004: Roof
+    100006: Ceiling
     400000: Maze
     400002: //RootNode
     400004: Roof
+    400006: Ceiling
     2100000: No Name
     2100002: Wall
     2100004: Floor
+    2100006: Ceiling
     2300000: Maze
     2300002: Roof
+    2300004: Ceiling
     3300000: Maze
     3300002: Roof
+    3300004: Ceiling
     4300000: Roof
     4300002: Maze
+    4300004: Ceiling
     6400000: Maze
     6400002: Roof
+    6400004: Ceiling
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ceiling
+    second: {fileID: 2100000, guid: 7479a99da45514e91b24bee2d1fc90bf, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
