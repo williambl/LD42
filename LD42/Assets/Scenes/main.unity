@@ -152,6 +152,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 199563347091007050, guid: 0de5ff99772c54966a09f87dec2e97ef,
+        type: 2}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198907163396188560, guid: 0de5ff99772c54966a09f87dec2e97ef,
+        type: 2}
+      propertyPath: LightsModule.ratio
+      value: 0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 198907163396188560, guid: 0de5ff99772c54966a09f87dec2e97ef,
+        type: 2}
+      propertyPath: LightsModule.maxLights
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0de5ff99772c54966a09f87dec2e97ef, type: 2}
   m_IsPrefabAsset: 0
