@@ -10,6 +10,8 @@ ModelImporter:
     400002: //RootNode
     400004: Roof
     2100000: No Name
+    2100002: Wall
+    2100004: Floor
     2300000: Maze
     2300002: Roof
     3300000: Maze
@@ -18,7 +20,17 @@ ModelImporter:
     4300002: Maze
     6400000: Maze
     6400002: Roof
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Floor
+    second: {fileID: 2100000, guid: 723e52acf2388430f980b609d01fb1c9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall
+    second: {fileID: 2100000, guid: 1d1375d38433a42c7827566f9e965798, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
