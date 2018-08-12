@@ -6,6 +6,8 @@ public class Player : MonoBehaviour {
 
     public float rotateSpeed = 20;
     public float moveSpeed = 5;
+    public bool lost;
+    public bool won;
 
     [SerializeField]
     private GameObject loseCanvas;
@@ -14,8 +16,6 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private UnityEngine.UI.Button winButton;
 
-    private bool lost;
-    private bool won;
     private CharacterController controller;
 
     // Use this for initialization

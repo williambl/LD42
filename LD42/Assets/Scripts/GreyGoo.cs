@@ -5,6 +5,7 @@ using UnityEngine;
 public class GreyGoo : MonoBehaviour {
 
     public float secondsUntilDoubled = 5;
+    public Player player;
 
     private float lastDoubleTime = 0;
     private ParticleSystem particleSystem;
@@ -18,6 +19,8 @@ public class GreyGoo : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        if (player.won)
+            return;
         if (Time.time > lastDoubleTime + secondsUntilDoubled) {
             var emission = particleSystem.emission;
             var main = particleSystem.main;
