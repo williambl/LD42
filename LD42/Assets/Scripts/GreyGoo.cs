@@ -11,26 +11,44 @@ public class GreyGoo : MonoBehaviour {
     private ParticleSystem particleSystem;
     private AudioSource audioSource;
 
+    private Vector3 lastScale;
+    private float lastVolume;
+    private float lastStartSize;
+    private float lastRateOverTime;
+
     // Use this for initialization
     void Start () {
         particleSystem = GetComponent<ParticleSystem>();
         audioSource = GetComponent<AudioSource>();
+
+        lastScale = transform.localScale;
+        lastVolume = audioSource.volume;
+        lastStartSize = particleSystem.main.startSize.constant;
+        lastRateOverTime = particleSystem.emission.rateOverTime.constant;
     }
 
     // Update is called once per frame
     void Update () {
         if (player.won)
             return;
-        if (Time.time > lastDoubleTime + secondsUntilDoubled) {
-            var emission = particleSystem.emission;
-            var main = particleSystem.main;
-            emission.rateOverTime = emission.rateOverTime.constant * 6/(transform.localScale.x/2);
-            main.startSize = main.startSize.constant * 2;
 
-            audioSource.volume *= 2;
+        float lerpAmount = (Time.time-lastDoubleTime)/secondsUntilDoubled;
+        Debug.Log(lerpAmount);
 
-            transform.localScale *= 2;
+        var emission = particleSystem.emission;
+        var main = particleSystem.main;
+        emission.rateOverTime = Mathf.Lerp(lastRateOverTime, lastRateOverTime * 6/(transform.localScale.x/2), lerpAmount);
+        main.startSize = Mathf.Lerp(lastStartSize, lastStartSize * 2, lerpAmount);
 
+        audioSource.volume = Mathf.Lerp(lastVolume, lastVolume * 2, lerpAmount);
+
+        transform.localScale = Vector3.Lerp(lastScale, lastScale * 2, lerpAmount);
+
+        if (lerpAmount >= 1) {
+            lastScale = transform.localScale;
+            lastVolume = audioSource.volume;
+            lastStartSize = particleSystem.main.startSize.constant;
+            lastRateOverTime = particleSystem.emission.rateOverTime.constant;
             lastDoubleTime = Time.time;
         }
     }
